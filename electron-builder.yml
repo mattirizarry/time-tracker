@@ -1,0 +1,16 @@
+---
+appId: me.mattirizarry.timetracker
+productName: Time Tracker
+directories:
+  buildResources: static/icons
+mac:
+  category: public.app-category.developer-tools
+  publish:
+    - github
+win:
+  publish:
+    - github
+linux:
+  category: Office
+  publish:
+    - github

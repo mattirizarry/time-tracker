@@ -1,0 +1,29 @@
+.app
+  width: 100vw
+  height: 100vh
+  display: grid
+  margin-top: 2.2rem
+  color: white
+
+  .punch-form
+    place-self: center
+    border: 0.1rem solid $light-grey
+    padding: 2rem
+    border-radius: 0.5rem
+
+    display: grid
+    grid: 4rem 16rem 4rem / auto
+
+    button
+      background: $light-blue
+      cursor: pointer
+      height: 4rem
+      padding: 1rem 2rem
+      border-radius: 2rem
+      font-size: 1.8rem
+      text-transform: lowercase
+      color: $white
+
+      &:hover
+        background: $dark-blue
+        transition: 200ms linear

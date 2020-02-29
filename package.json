@@ -1,0 +1,47 @@
+{
+  "name": "time-tracker",
+  "version": "1.0.0",
+  "description": "A desktop application for managing time punches.",
+  "main": "index.js",
+  "author": "Matt Irizarry <matthew@irizarry.dev",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "yarn eslint ./src --ext .ts,.tsx",
+    "test": "yarn lint && yarn jest --passWithNoTests",
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "electron:build": "yarn compile && electron-builder -mwl --x64 -p never",
+    "electron:build:win": "yarn compile && electron-builder -w --x64 -p never",
+    "electron:build:mac": "yarn compile && electron-builder --mac -p never",
+    "electron:release": "yarn compile && electron-builder -mwl --x64 -p always",
+    "validate:mac": "codesign -dv --verbose=4 ./dist/mac/Trax.app/"
+  },
+  "devDependencies": {
+    "@types/electron-devtools-installer": "^2.2.0",
+    "@types/node": "12.12.6",
+    "electron": "^8.0.2",
+    "electron-builder": "^22.3.2",
+    "electron-webpack": "^2.7.4",
+    "electron-webpack-ts": "^3.2.0",
+    "node-sass": "^4.13.1",
+    "prettier": "^1.19.1",
+    "sass-loader": "^8.0.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.41.6"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-redux": "^7.1.7",
+    "@types/uuid": "^7.0.0",
+    "axios": "^0.19.2",
+    "electron-devtools-installer": "^2.2.4",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "uuid": "^7.0.1"
+  }
+}

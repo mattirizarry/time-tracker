@@ -1,0 +1,8 @@
+{
+  "whiteListedModules": [
+    "react-redux"
+  ],
+  "renderer": {
+    "webpackConfig": "electron-webpack.renderer.js"
+  }
+}
