@@ -3,7 +3,8 @@ import { Resource } from "@/models/app";
 
 export interface TimeLog {
   projectCode: typeof projectCodes
-  logType: "start" | "end"
+  logType: "start" | "end",
+  timestamp: number
 }
 
 export type TimeLogState = Resource<TimeLog>

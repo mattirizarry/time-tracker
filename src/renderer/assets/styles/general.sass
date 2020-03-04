@@ -1,3 +1,7 @@
+html,
+body
+  font-family: "Helvetica", sans-serif
+  
 .app
   width: 100vw
   height: 100vh
@@ -5,12 +9,13 @@
   margin-top: 2.2rem
   color: white
 
+  .container
+    border: 0.1rem solid $light-grey
+    border-radius: 0.5rem
+    padding: 2rem
+
   .punch-form
     place-self: center
-    border: 0.1rem solid $light-grey
-    padding: 2rem
-    border-radius: 0.5rem
-
     display: grid
     grid: 4rem 16rem 4rem / auto
 
@@ -27,3 +32,6 @@
       &:hover
         background: $dark-blue
         transition: 200ms linear
+
+  .punch-list
+    place-self: center

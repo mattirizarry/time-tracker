@@ -1,5 +1,5 @@
 import { TimeLogState, defaultTimeLogState } from "@/models/timeLog";
-import { FormState, defaultFormState } from "./form";
+import { FormState, defaultFormState } from "@/models/form";
 
 export interface Resource<T> {
   isLoading: boolean

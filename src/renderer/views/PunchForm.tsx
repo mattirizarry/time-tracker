@@ -31,7 +31,10 @@ const PunchForm: FC<Connected & Actions> = ({ _formState, _updateForm, _clearFor
   }
 
   const _handleSubmitForm = () => {
-    _createTimeLog(_formState as TimeLog)
+
+    const newPunch = { ..._formState as TimeLog, timestamp: new Date().getTime() }
+
+    _createTimeLog(newPunch)
     _clearForm()
   }
 
@@ -40,12 +43,14 @@ const PunchForm: FC<Connected & Actions> = ({ _formState, _updateForm, _clearFor
   }
 
   return (
-    <section className="punch-form">
+    <section className="punch-form container">
       <h2>Enter a new punch</h2>
       <fieldset>
         <label>Project</label>
         <select 
-          value={ _formState.projectCode || "" }
+          defaultChecked={ false }
+          defaultValue={ projectCodes.UNICORN }
+          value={ _formState.projectCode }
           onChange={ (e) => _handleUpdateForm('projectCode', e.currentTarget.value) }
         >
           { _renderProjectOptions() }
