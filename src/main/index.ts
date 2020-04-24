@@ -42,8 +42,6 @@ const createWindow = (): void => {
     )
   }
 
-  mainWindow.maximize()
-
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow && mainWindow.show()
     mainWindow && mainWindow.focus()
