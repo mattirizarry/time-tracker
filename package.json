@@ -1,6 +1,6 @@
 {
   "name": "time-tracker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A desktop application for managing time punches.",
   "main": "index.js",
   "author": "Matt Irizarry <matthew@irizarry.dev",
