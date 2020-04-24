@@ -13,12 +13,15 @@ app.allowRendererProcessReuse = true
 
 const createWindow = (): void => {
   mainWindow = new BrowserWindow({
-    titleBarStyle: 'hidden',
-    backgroundColor: '#2c2c2c',
+    titleBarStyle: 'default',
+    title: '',
+    backgroundColor: '#212529',
     icon: path.resolve(__static, 'icons/icon.png'),
     show: false,
-    width: 900,
-    height: 680,
+    width: 720,
+    height: 480,
+    minHeight: 480,
+    minWidth: 720,
     webPreferences: {
       // experimentalFeatures: true,
       // contextIsolation: false,

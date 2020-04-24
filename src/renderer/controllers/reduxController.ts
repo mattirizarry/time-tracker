@@ -3,7 +3,9 @@ import storage from 'redux-persist/lib/storage'
 import { compose, createStore } from 'redux'
 
 import { timeLogReducer } from '@/controllers/timeLogController'
-import { formReducer } from './formController'
+import { formReducer } from '@/controllers/formController'
+import { projectReducer } from '@/controllers/projectController'
+import { payReducer } from '@/controllers/payController'
 
 declare global {
   interface Window {
@@ -19,7 +21,9 @@ const persistConfig  = {
 
 const rootReducer = persistCombineReducers(persistConfig, {
   timeLogState: timeLogReducer,
-  formState: formReducer
+  formState: formReducer,
+  projectState: projectReducer,
+  payState: payReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
