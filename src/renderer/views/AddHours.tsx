@@ -58,10 +58,12 @@ const AddHours: FC<Actions & Connected> = ({ _projects, _updateProject }) => {
         <input 
           type="number" 
           className="input medium" 
-          placeholder="hours" 
+          placeholder="hours"
+          pattern="[0-9]*"
+          step="0.01" 
           value={ earnedHours }
           disabled={ _projects.keys.length < 1 }
-          onChange={ (e) => setEarnedHours(parseInt(e.currentTarget.value)) }
+          onChange={ (e) => setEarnedHours(parseFloat(e.currentTarget.value)) }
         />
       </section>
       <button

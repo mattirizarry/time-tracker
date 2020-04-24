@@ -38,7 +38,7 @@ const App: FC<Connected> = ({ _projects }) => {
     return (
       <section className="totals">
         <section className="total-numbers">
-          <h1 className="earned">{ earned } earned of</h1>
+          <h1 className="earned">{ earned.toFixed(2) } earned of</h1>
           <h1 className="total">{ total } hours</h1>
         </section>
         <ProgressBar earned={ earned } total={ total } />
