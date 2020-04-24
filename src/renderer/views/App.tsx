@@ -24,16 +24,18 @@ const App: FC<Connected> = ({ _projects }) => {
     return _projects.keys.map((key) => <ProjectProgress key={ key } { ..._projects.data[key] }/>  )
   }
 
-  const _renderTotalProgress = () => {
+  const _renderTotalProgress = (keys: string[]) => {
     let earned = 0
     let total = 0
 
-    _projects.keys.map((key) => {
-      let {goalHours, achievedHours} = _projects.data[key]
+    if (keys.length > 0) {
+      keys.map((key) => {
+        let {goalHours, achievedHours} = _projects.data[key]
 
-      earned += achievedHours > goalHours && !includeAllHours ? goalHours : achievedHours
-      total += goalHours
-    })
+        earned += achievedHours > goalHours && !includeAllHours ? goalHours : achievedHours
+        total += goalHours
+      })
+    }
 
     return (
       <section className="totals">
@@ -69,7 +71,7 @@ const App: FC<Connected> = ({ _projects }) => {
           </div>
         </section>
         <footer>
-          { _renderTotalProgress() }
+          { _renderTotalProgress(_projects.keys) }
           <button onClick={ () => setIncludeAllHours(!includeAllHours) } className="toggle">{ includeAllHours ? 'Show goals' : 'Show totals' }</button>
         </footer>
       </aside>

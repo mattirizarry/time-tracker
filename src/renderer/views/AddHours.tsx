@@ -20,9 +20,10 @@ const AddHours: FC<Actions & Connected> = ({ _projects, _updateProject }) => {
 
   const [ selectedCode, setSelectedCode ] = useState<string>("")
   const [ earnedHours, setEarnedHours ] = useState<number>(0)
+  const [ dropdownActive, setDropdownActive ] = useState<boolean>(false)
 
   const _renderCodes = () => {
-    return _projects.keys.map((key: string) => <option key={ key } value={key} />)
+    return _projects.keys.map((key: string) => <li key={ key } onClick={ (e) => _codeHandler(key) }>{ key }</li>)
   }
 
   const _submitHandler = (e: React.SyntheticEvent) => {
@@ -40,10 +41,31 @@ const AddHours: FC<Actions & Connected> = ({ _projects, _updateProject }) => {
     setEarnedHours(0)
   }
 
+  const _codeHandler = (code: string) => {
+    setSelectedCode(code)
+    setDropdownActive(false)
+  }
+
+  const _dropdownHandler = (e: React.SyntheticEvent) => {
+    e.preventDefault()
+
+    setDropdownActive(!dropdownActive)
+  }
+
   return (
     <form className="add-earned-hours">
       <h1>Add your hours</h1>
       <section className="form-inputs">
+        <section className={`project-dropdown-codes ${ dropdownActive && 'active' }`}>
+          <button
+            onClick={ _dropdownHandler }
+          >{ dropdownActive || !selectedCode ? "click to select code" : selectedCode }</button>
+          <section className="dropdown-masonry">
+            { _renderCodes() }
+          </section>
+        </section>
+        {
+          /*
         <input 
           value={ selectedCode } 
           onChange={ (e) => setSelectedCode(e.currentTarget.value) } 
@@ -55,6 +77,9 @@ const AddHours: FC<Actions & Connected> = ({ _projects, _updateProject }) => {
         <datalist id="codes">
           { _renderCodes() }
         </datalist>
+          
+          */
+        }
         <input 
           type="number" 
           className="input medium" 
