@@ -17,6 +17,10 @@
     "electron:release": "yarn compile && electron-builder -mwl --x64 -p always",
     "validate:mac": "codesign -dv --verbose=4 ./dist/mac/Trax.app/"
   },
+  "resolutions": { 
+    "minimist": "^1.2.3",
+    "js-yaml": "^3.13.1"
+  },
   "devDependencies": {
     "@types/electron-devtools-installer": "^2.2.0",
     "@types/node": "12.12.6",
